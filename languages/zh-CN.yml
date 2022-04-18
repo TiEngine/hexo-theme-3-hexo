@@ -12,10 +12,10 @@ post:
   views: "阅读"
   comment: "评论"
   copyright: "版权声明"
-  copyright1: "\"署名-非商用-相同方式共享 4.0\""
-  copyright2: "转载请保留原文链接及作者。"
+  copyright1: "\"CC BY-NC-ND 4.0\" 署名-不可商用-禁止演绎"
+  copyright2: "转载请注明原文链接及作者信息，侵权必究。"
 donation:
   button: "赏"
-  headline: "喜欢就点赞,疼爱就打赏"
+  headline: "喜欢或有帮助？赞赏下作者呗！"
   alipay: "支付宝"
   weixin: "微信"
