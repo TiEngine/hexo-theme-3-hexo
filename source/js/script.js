@@ -670,6 +670,7 @@ function bind() {
     //初始化文章toc
     // $(".post-toc-content").html($("#post .pjax article .toc-ref .toc").clone());
     $("#outline-list").html($("#post .pjax article .toc-ref .toc").clone());
+    $("#outline-list .toc").append($("#post .pjax article .toc-ref > .toc-item").clone());
     // 修复自定义标题的关联关系
     $("#outline-list").find('.toc-link').each(function() {
         if (!$(this).attr('href')) {
@@ -797,30 +798,17 @@ function copy (text) {
     var isSuccess = false
     var target;
     if (text) {
-        target = document.createElement('div');
+        target = document.createElement('textarea');
         target.id = 'tempTarget';
         target.style.opacity = '0';
-        target.innerText = text;
+        target.value = text;
         document.body.appendChild(target);
-    } else {
-        target = document.querySelector('#' + id);
-    }
-
-    try {
-        var range = document.createRange();
-        range.selectNode(target);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        window.getSelection().removeAllRanges();
+        target.select();
+        document.execCommand('copy', true);
+        document.body.removeChild(target)
         isSuccess = true
-    } catch (e) {
-        console.error('复制失败')
-    }
-
-    if (text) {
-        // remove temp target
-        target.parentElement.removeChild(target);
+    } else {
+        isSuccess = false
     }
     return isSuccess
 }
